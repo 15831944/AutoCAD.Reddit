@@ -1,0 +1,28 @@
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\Template AutoCAD PlugIn.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\Template AutoCAD PlugIn.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\PresentationCore.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\RedditSharp.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\AcTcMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\AcCui.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\bin\Debug\RedditSharp.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\obj\Debug\AutoCADReddit.MyCommands.resources
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\obj\Debug\AutoCAD.Reddit.csproj.GenerateResource.Cache
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\obj\Debug\Template AutoCAD PlugIn.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\obj\Debug\Template AutoCAD PlugIn.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\Template AutoCAD PlugIn\obj\Debug\AutoCAD.Reddit.csprojResolveAssemblyReference.cache
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AutoCAD.Reddit.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AutoCAD.Reddit.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\PresentationCore.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\RedditSharp.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcTcMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcCui.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\RedditSharp.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.csprojResolveAssemblyReference.cache
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCADReddit.MyCommands.resources
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.csproj.GenerateResource.Cache
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.pdb
