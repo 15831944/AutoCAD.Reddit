@@ -5,8 +5,10 @@ AutoCAD Commands
 
 "REDDIT" - Plot a subreddit.
 
-"REDDITGETPOST" - View a post using AutoCAD.Reddit Post Id.
+"RPOST" - View a post using AutoCAD.Reddit Post Id.
 
-"REDDITHIDE" - Hide/Freeze AutoCAD.Reddit entities.
+"RFREEZE" - Hide/Freeze AutoCAD.Reddit entities.
 
-"REDDITDELETE" - Delete all AutoCAD.Reddit entities.
+"RTHAW" - Hide/Freeze AutoCAD.Reddit entities.
+
+"RDEL" - Delete all AutoCAD.Reddit entities.
