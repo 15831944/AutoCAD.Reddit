@@ -28,8 +28,9 @@ namespace AutoCADReddit
                     Tuple<double, double> widthHeight;
                     int i = -1;
                     double yTextLocation = dimstyle.origin.Y ;
-                    double mtextActualHeight = dimstyle.origin.Y * 0.05;
-                    foreach (var post in subreddit.Hot.Take(15))                  
+                    double mtextActualHeight = 0;
+                    DrawEntity.DrawDim(dimstyle.origin, new Point3d(dimstyle.cornerBase.X, dimstyle.origin.Y, 0), "/r/" + pickedSubReddit, "REDDIT.HEADINGS", dimstyle.headingTxtSize);
+                    foreach (var post in subreddit.Hot.Take(20))                  
                     {
                         
                         string postId = GeneratePostId(PostMarker.postmarker);
@@ -176,8 +177,9 @@ namespace AutoCADReddit
             {
                 HtmlWeb imgur = new HtmlWeb();
                 imgur.Load(url);
-                HtmlDocument doc = imgur.Load(url);     
-                HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='post-image']/img"); //node that contains the link & description of images
+                HtmlDocument doc = imgur.Load(url);
+                //HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='post-image']/img"); //node that contains the link & description of images
+                HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//*/div[@class='post-image']//img"); //node that contains the link & description of images
                 if (nodes != null)
                 {
                     foreach (HtmlNode node in nodes)
@@ -199,10 +201,10 @@ namespace AutoCADReddit
         {
             ent.origin = origin;
             ent.cornerBase = cornerBase;
-            ent.headingTxtSize = (origin.Y - cornerBase.Y) * 0.020;
-            ent.subHeadingTxtSize = ((origin.Y - cornerBase.Y) * 0.020) * 0.5;
-            ent.commentsSize = (origin.Y - cornerBase.Y) * 0.00250;
-            ent.subCommentsSize = ((origin.Y - cornerBase.Y) * 0.00250) * 0.5;
+            ent.headingTxtSize = (origin.Y - cornerBase.Y) * 0.015;
+            ent.subHeadingTxtSize = ((origin.Y - cornerBase.Y) * 0.015) * 0.6;
+            ent.commentsSize = (origin.Y - cornerBase.Y) * 0.002;
+            ent.subCommentsSize = ((origin.Y - cornerBase.Y) * 0.0020) * 0.6;
             ent.textWidth = (cornerBase.X - origin.X);
             ent.yLength = (cornerBase.Y - origin.Y);
             ent.xLength = (cornerBase.X - origin.X);
@@ -305,7 +307,11 @@ namespace AutoCADReddit
             "REDDIT.BORDER",
             "REDDIT.COMMENTS",
             "REDDIT.COMMENTS.SUBHEADINGS",
-            "REDDIT.IMGS"
+            "REDDIT.IMGS",
+            "REDDIT.HEADINGS",
+            "REDDIT.POSTID",
+            "REDDIT.SUBHEADINGS"
+
         };
         public static void AddLayer(string layname)
         {

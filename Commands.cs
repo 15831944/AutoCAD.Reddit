@@ -25,13 +25,13 @@ namespace AutoCADReddit
             if (doc != null)
             {
                 ed = doc.Editor;
+                PromptStringOptions prmptStrOpt = new PromptStringOptions("\n\n Type subreddit name. Do not include '/r/' ");
+                PromptResult prmpRes = ed.GetString(prmptStrOpt);
                 PromptPointOptions prmptPtOptions = new PromptPointOptions("\n\nPick insertion point....");            
                 PromptPointResult result =  ed.GetPoint(prmptPtOptions);              
                 PromptCornerOptions prmptCnrOptions = new PromptCornerOptions("\n\n Click on bottom corner..", result.Value);
                 PromptPointResult prmptCnrResult;
-                prmptCnrResult = ed.GetCorner(prmptCnrOptions);
-                PromptStringOptions prmptStrOpt = new PromptStringOptions("\n\n Type subreddit name. Do not include '/r/' ");
-                PromptResult prmpRes = ed.GetString(prmptStrOpt);                
+                prmptCnrResult = ed.GetCorner(prmptCnrOptions);           
                 string chosenSubReddit = prmpRes.StringResult;
                 RedditCAD.FormatRedditDim(dimStyles, result.Value, prmptCnrResult.Value);
                 
@@ -41,7 +41,7 @@ namespace AutoCADReddit
                 }
             }
         }
-        [CommandMethod("redditgetpost")]
+        [CommandMethod("rpost")]
         public void GetPost()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
@@ -62,17 +62,75 @@ namespace AutoCADReddit
             }
 
         }
-        [CommandMethod("hidereddit")]
+        [CommandMethod("rfreeze")]
         public void HideReddit()
         {
             string layerName = "";
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Database db = doc.Database;
             Editor ed = doc.Editor;
-            ObjectIdCollection objCollection = DrawEntity.SelectByLayer(layerName);
             using (Transaction tr = db.TransactionManager.StartTransaction())
             {
-                
+                LayerTable layerTable;
+                layerTable = tr.GetObject(db.LayerTableId, OpenMode.ForRead) as LayerTable;
+                foreach(string layername in LayerNameList.GetLayerNames())
+                {
+                    if(layerTable.Has(layername))
+                    {
+                        LayerTableRecord layerTableRec = tr.GetObject(layerTable[layername], OpenMode.ForWrite) as LayerTableRecord;
+                        layerTableRec.IsFrozen = true;
+                    }
+                }
+                tr.Commit();
+            }
+        }
+        [CommandMethod("rthaw")]
+        public void ThawReddit()
+        {
+            string layerName = "";
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            Database db = doc.Database;
+            Editor ed = doc.Editor;          
+            using (Transaction tr = db.TransactionManager.StartTransaction())
+            {
+                LayerTable layerTable;
+                layerTable = tr.GetObject(db.LayerTableId, OpenMode.ForRead) as LayerTable;
+                foreach (string layername in LayerNameList.GetLayerNames())
+                {
+                    if (layerTable.Has(layername))
+                    {
+                        LayerTableRecord layerTableRec = tr.GetObject(layerTable[layername], OpenMode.ForWrite) as LayerTableRecord;
+                        layerTableRec.IsFrozen = false;
+                    }
+                }
+                tr.Commit();
+            }
+        }
+        [CommandMethod("rdel")]
+        public void DeleteReddit()
+        {
+            string layerName = "";
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            Database db = doc.Database;
+            Editor ed = doc.Editor;
+            using (Transaction tr = db.TransactionManager.StartTransaction())
+            {
+                LayerTable layerTable;
+                layerTable = tr.GetObject(db.LayerTableId, OpenMode.ForRead) as LayerTable;
+                foreach (string layername in LayerNameList.GetLayerNames())
+                {
+                    //Select entities from layer names 
+                    ObjectIdCollection objects = DrawEntity.SelectByLayer(layername);
+                    foreach(ObjectId obj in objects)
+                    {
+                        var ent = tr.GetObject(obj, OpenMode.ForWrite);
+                        ent.Erase(true);
+                    }
+                    //Now delete the layer
+                    LayerTableRecord layerTableRec = tr.GetObject(layerTable[layername], OpenMode.ForWrite) as LayerTableRecord;
+                    layerTableRec.Erase(true);
+                }
+                tr.Commit();
             }
         }
 

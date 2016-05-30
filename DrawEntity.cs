@@ -105,6 +105,31 @@ namespace AutoCADReddit
             }
             return entCreated;
         }
+
+        public static Entity DrawDim(Point3d start, Point3d end, string text, string layerName, double mtextheight, short colour = 255, bool isClosed = true)
+        {
+            Document doc = Application.DocumentManager.MdiActiveDocument;
+            Database currentDB = doc.Database;
+            CreateLayer(layerName, colour);
+            Entity entCreated;
+            using (Transaction tr = currentDB.TransactionManager.StartTransaction())
+            {
+                BlockTable blckTable = tr.GetObject(currentDB.BlockTableId, OpenMode.ForRead) as BlockTable;
+                BlockTableRecord blockTableRec = tr.GetObject(blckTable[BlockTableRecord.ModelSpace], OpenMode.ForWrite) as BlockTableRecord;
+                AlignedDimension alignedDim = new AlignedDimension();
+                alignedDim.XLine1Point = start;
+                alignedDim.XLine2Point = end;
+                alignedDim.DimensionText = text;
+                alignedDim.Dimscale = mtextheight;
+                alignedDim.DimLinePoint = new Point3d(((end.X - start.X) / 2), start.Y * 1.025, 0);
+                alignedDim.HorizontalRotation = 0;
+                blockTableRec.AppendEntity(alignedDim);
+                tr.AddNewlyCreatedDBObject(alignedDim, true);
+                tr.Commit();
+                entCreated = alignedDim;
+            }
+            return entCreated;
+        }
         public static void DrawImg(Point3d location, string fileName, string layerName, double height, double width, short colour = 255, bool isClosed = true)
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
