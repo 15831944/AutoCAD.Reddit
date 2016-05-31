@@ -29,7 +29,7 @@ namespace AutoCADReddit
                     int i = -1;
                     double yTextLocation = dimstyle.origin.Y ;
                     double mtextActualHeight = 0;
-                    DrawEntity.DrawDim(dimstyle.origin, new Point3d(dimstyle.cornerBase.X, dimstyle.origin.Y, 0), "/r/" + pickedSubReddit, "REDDIT.HEADINGS", dimstyle.headingTxtSize);
+                    DrawEntity.DrawDim(dimstyle.origin, new Point3d(dimstyle.cornerBase.X, dimstyle.origin.Y, 0), "/r/" + pickedSubReddit, "REDDIT.HEADINGS", dimstyle.headingTxtSize, 1.025);
                     foreach (var post in subreddit.Hot.Take(20))                  
                     {
                         
@@ -58,6 +58,12 @@ namespace AutoCADReddit
             }
             return result;
         }
+        /// <summary>
+        /// Plots reddit post based on Post Id
+        /// </summary>
+        /// <param name="dimstyle">object containing dim scales based on the bounding box drawn by user</param>
+        /// <param name="id">Reddit Post ID</param>
+        /// <returns></returns>
         public static string PlotPost(EntityData dimstyle, string id)
         {
             string result = "OK";         
@@ -75,12 +81,12 @@ namespace AutoCADReddit
                 for(int i = 0; i < imgurLinks.Count; i++)                
                 {
                     Point3d imgLocation = new Point3d(dimstyle.origin.X + (i * (dimstyle.cornerBase.X - dimstyle.origin.X)), dimstyle.origin.Y, 0);
-                    double heightNWith = dimstyle.yLength * 0.05; //Basing height and with on the height of the border drawn by user. if width & height are seperated then img will be distorted
+                    double heightNWith = dimstyle.yLength * 0.025; //Basing height and with on the height of the border drawn by user. if width & height are seperated then img will be distorted
                     string image = GetImage(imgurLinks[i]);
                     DrawEntity.DrawImg(imgLocation, image,"REDDIT.IMGS", heightNWith, heightNWith);
                 }
 
-                DrawEntity.DrawBox(dimstyle.origin, dimstyle.cornerBase, "REDDIT.BORDER", 20);
+                //DrawEntity.DrawBox(dimstyle.origin, dimstyle.cornerBase, "REDDIT.BORDER", 20);
                 RedditSharp.Reddit reddit = new RedditSharp.Reddit();
                 if (post != null)
                 {
@@ -88,6 +94,7 @@ namespace AutoCADReddit
                     int i = -1; //Multiplier to help to align text in the Y axis.
                     double yTextLocation = dimstyle.origin.Y;
                     double mtextActualHeight = (dimstyle.yLength * .0025);
+                    Point2d subHeadingLocation = new Point2d(dimstyle.origin.X, dimstyle.origin.Y);
                     foreach (var comment in post.Comments.Take(50))
                     {
                         Tuple<double, double> widthHeight; // A*C*T*U*A*L width & height of the mtext created
@@ -96,7 +103,7 @@ namespace AutoCADReddit
                         widthHeight = DrawEntity.DrawText(commentLocation, dimstyle.commentsSize, dimstyle.textWidth, comment.Body, "REDDIT.COMMENTS", 7);
                         
                         mtextActualHeight = widthHeight.Item2;
-                        Point2d subHeadingLocation = new Point2d(dimstyle.origin.X, yTextLocation - mtextActualHeight);
+                        subHeadingLocation = new Point2d(dimstyle.origin.X, yTextLocation - mtextActualHeight);
                         string subHeading = string.Format("By:{0} | Upvotes: {1} | Submitted: {2}", 
                                                           comment.Author, comment.Upvotes, post.Created.ToString());
                         DrawEntity.DrawText(subHeadingLocation, dimstyle.subCommentsSize, dimstyle.textWidth, subHeading, "REDDIT.COMMENTS.SUBHEADINGS", 251);                      
@@ -136,6 +143,9 @@ namespace AutoCADReddit
                             }
                         }
                     }
+                    Point3d endPt = new Point3d(dimstyle.cornerBase.X - ((dimstyle.cornerBase.X - dimstyle.origin.X) /2), subHeadingLocation.Y - (subHeadingLocation.Y * 0.0025) , 0);
+                    DrawEntity.DrawBox(dimstyle.origin, endPt, "REDDIT.BORDER", 20);
+                    DrawEntity.DrawDim(dimstyle.origin, new Point3d(endPt.X, dimstyle.origin.Y, 0), "POST ID : " + id, "REDDIT.COMMENTS", dimstyle.subHeadingTxtSize, 1.005);
                 }
             }
             catch (Exception e)
@@ -170,6 +180,12 @@ namespace AutoCADReddit
             }
             return isImg;
         }
+
+        /// <summary>
+        /// Parses imgurs html and looks for the div element containing the direct link to the image
+        /// </summary>
+        /// <param name="url">imgur link</param>
+        /// <returns>Direct url link to the image</returns>
         private static List<string> GetImgurImgs(string url)
         {
             List<string> imgsLinks = new List<string>();
@@ -178,7 +194,6 @@ namespace AutoCADReddit
                 HtmlWeb imgur = new HtmlWeb();
                 imgur.Load(url);
                 HtmlDocument doc = imgur.Load(url);
-                //HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='post-image']/img"); //node that contains the link & description of images
                 HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//*/div[@class='post-image']//img"); //node that contains the link & description of images
                 if (nodes != null)
                 {
@@ -260,21 +275,6 @@ namespace AutoCADReddit
 
             return id;
         }
-        //Checks for chars in the specialChars var
-        private static readonly char[] SpecialChars = "_+-/=<>?'|;:[]{}~`!\\@#$%^&*()".ToCharArray();
-        public static string FormatSubRedditStr(string subreddit)
-        {
-            if (subreddit.IndexOfAny(SpecialChars) == -1)
-            {
-                subreddit.ToLower();
-                return subreddit;
-            }
-            else
-            {
-                subreddit = "<INVALID>";
-                return subreddit;
-            }         
-        }
     }
     /// <summary>
     /// Class containing reddit dim scales
@@ -299,7 +299,9 @@ namespace AutoCADReddit
     {
         public static int postmarker = 1;
     }
-
+    /// <summary>
+    /// List of layer names used by AutoCAD.Reddit
+    /// </summary>
     public static class LayerNameList
     {
         private static List<string> _layerlist = new List<string>()
@@ -346,6 +348,15 @@ namespace AutoCADReddit
         public static void AddPost(string id, object obj)
         {
             dictionary.Add(id, obj);
+        }
+        public static bool Contains(string id)
+        {
+            bool result = false;
+            if(dictionary.ContainsKey(id))
+            {
+                result = true;
+            }
+            return result;
         }
     }
 }

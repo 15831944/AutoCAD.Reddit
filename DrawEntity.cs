@@ -105,8 +105,18 @@ namespace AutoCADReddit
             }
             return entCreated;
         }
-
-        public static Entity DrawDim(Point3d start, Point3d end, string text, string layerName, double mtextheight, short colour = 255, bool isClosed = true)
+        /// <summary>
+        /// Draw aligned dimension
+        /// </summary>
+        /// <param name="start">Start of dim</param>
+        /// <param name="end">End of dim</param>
+        /// <param name="text">Text overide of dim</param>
+        /// <param name="layerName"></param>
+        /// <param name="mtextheight"></param>
+        /// <param name="colour"></param>
+        /// <param name="isClosed"></param>
+        /// <returns></returns>
+        public static Entity DrawDim(Point3d start, Point3d end, string text, string layerName, double mtextheight, double yLocationMultiplier, short colour = 255)
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Database currentDB = doc.Database;
@@ -121,7 +131,7 @@ namespace AutoCADReddit
                 alignedDim.XLine2Point = end;
                 alignedDim.DimensionText = text;
                 alignedDim.Dimscale = mtextheight;
-                alignedDim.DimLinePoint = new Point3d(((end.X - start.X) / 2), start.Y * 1.025, 0);
+                alignedDim.DimLinePoint = new Point3d(((end.X - start.X) / 2), start.Y * yLocationMultiplier, 0);
                 alignedDim.HorizontalRotation = 0;
                 blockTableRec.AppendEntity(alignedDim);
                 tr.AddNewlyCreatedDBObject(alignedDim, true);
@@ -166,8 +176,10 @@ namespace AutoCADReddit
                 using (RasterImage rasterImg = new RasterImage())
                 {
                     rasterImg.ImageDefId = imageDictId;
-                    Vector3d widthV = new Vector3d((width * (rasterImg.ImageWidth * rasterImgDef.ResolutionMMPerPixel.X)), 0, 0);
-                    Vector3d heightV = new Vector3d(0, (height * (rasterImg.ImageHeight * rasterImgDef.ResolutionMMPerPixel.Y)), 0);
+                    Vector3d widthV = new Vector3d(width, 0, 0); 
+                    Vector3d heightV = new Vector3d(0, height, 0);
+                    //Vector3d widthV = new Vector3d((width * (rasterImg.ImageWidth * rasterImgDef.ResolutionMMPerPixel.X)), 0, 0);
+                   // Vector3d heightV = new Vector3d(0, (height * (rasterImg.ImageHeight * rasterImgDef.ResolutionMMPerPixel.Y)), 0);
                     CoordinateSystem3d coordinate = new CoordinateSystem3d(location, widthV, heightV);
                     rasterImg.Orientation = coordinate;
                     rasterImg.Rotation = 0;

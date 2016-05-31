@@ -49,7 +49,7 @@ namespace AutoCADReddit
             PromptStringOptions prmptStrOpt = new PromptStringOptions("\n\n Type RedditCAD Post ID : ");
             PromptResult prmpRes = ed.GetString(prmptStrOpt);
             string postId = prmpRes.StringResult.ToUpper();
-            if (postId.Length < 4)
+            if (PostIds.Contains(postId))
             {
                 EntityData dimStyles = new EntityData();
                 PromptPointOptions prmptPtOptions = new PromptPointOptions("\n\nPick insertion point....");
@@ -59,6 +59,10 @@ namespace AutoCADReddit
                 prmptCnrResult = ed.GetCorner(prmptCnrOptions);
                 RedditCAD.FormatRedditDim(dimStyles, result.Value, prmptCnrResult.Value);
                 RedditCAD.PlotPost(dimStyles, postId);
+            }
+            else
+            {
+                ed.WriteMessage("\n\n Invalid AutoCAD.Reddit Post Id..");
             }
 
         }
@@ -101,6 +105,7 @@ namespace AutoCADReddit
                     {
                         LayerTableRecord layerTableRec = tr.GetObject(layerTable[layername], OpenMode.ForWrite) as LayerTableRecord;
                         layerTableRec.IsFrozen = false;
+                        
                     }
                 }
                 tr.Commit();

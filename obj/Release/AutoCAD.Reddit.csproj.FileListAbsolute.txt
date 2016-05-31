@@ -1,0 +1,12 @@
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Release\AutoCAD.Reddit.csprojResolveAssemblyReference.cache
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Release\AutoCADReddit.MyCommands.resources
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Release\AutoCAD.Reddit.csproj.GenerateResource.Cache
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AutoCAD.Reddit.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AutoCAD.Reddit.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\HtmlAgilityPack.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\Newtonsoft.Json.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\PresentationCore.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\RedditSharp.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\RedditSharp.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Release\AutoCAD.Reddit.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Release\AutoCAD.Reddit.pdb
