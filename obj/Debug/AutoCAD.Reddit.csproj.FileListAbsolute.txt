@@ -18,8 +18,6 @@ C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\PresentationCore.dll
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\RedditSharp.dll
-C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcTcMgd.dll
-C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcCui.dll
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\RedditSharp.pdb
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.csprojResolveAssemblyReference.cache
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCADReddit.MyCommands.resources

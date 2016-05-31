@@ -133,6 +133,7 @@ namespace AutoCADReddit
                 alignedDim.Dimscale = mtextheight;
                 alignedDim.DimLinePoint = new Point3d(((end.X - start.X) / 2), start.Y * yLocationMultiplier, 0);
                 alignedDim.HorizontalRotation = 0;
+                alignedDim.Layer = layerName;
                 blockTableRec.AppendEntity(alignedDim);
                 tr.AddNewlyCreatedDBObject(alignedDim, true);
                 tr.Commit();

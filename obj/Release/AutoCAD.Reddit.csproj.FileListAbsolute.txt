@@ -10,3 +10,11 @@ C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\RedditSharp.pdb
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Release\AutoCAD.Reddit.dll
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Release\AutoCAD.Reddit.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AcCoreMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AcCui.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AcDbMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AcDx.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AcMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AcTcMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AcWindows.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Release\AdWindows.dll

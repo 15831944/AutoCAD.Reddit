@@ -60,35 +60,27 @@
     <!--AME Reference End-->
     <Reference Include="AcCoreMgd">
       <HintPath>.\AcCoreMgd.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="AcCui">
       <HintPath>.\AcCui.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="AcDbMgd">
       <HintPath>.\AcDbMgd.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="AcDx">
       <HintPath>.\AcDx.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="AcMgd">
       <HintPath>.\AcMgd.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="AcTcMgd">
       <HintPath>.\AcTcMgd.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="AcWindows">
       <HintPath>.\AcWindows.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="AdWindows">
       <HintPath>.\AdWindows.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\..\..\..\Downloads\RedditSharp-master\RedditSharp-master\RedditSharp\bin\Release\HtmlAgilityPack.dll</HintPath>
