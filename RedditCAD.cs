@@ -85,8 +85,6 @@ namespace AutoCADReddit
                     string image = GetImage(imgurLinks[i]);
                     DrawEntity.DrawImg(imgLocation, image,"REDDIT.IMGS", heightNWith, heightNWith);
                 }
-
-                //DrawEntity.DrawBox(dimstyle.origin, dimstyle.cornerBase, "REDDIT.BORDER", 20);
                 RedditSharp.Reddit reddit = new RedditSharp.Reddit();
                 if (post != null)
                 {
@@ -259,7 +257,7 @@ namespace AutoCADReddit
             string id = "";
             if (PostMarker.postmarker > 999)
             {
-                //max val 999.
+                //max val 999. If you need more then you should consider doing more work
                 PostMarker.postmarker = 1;
             }                     
             int rem;
@@ -271,8 +269,7 @@ namespace AutoCADReddit
             sb.Append(Convert.ToChar(firstNum));
             sb.Append(Convert.ToChar(secondNum));
             sb.Append(Convert.ToChar(thirdNum));
-            id = sb.ToString();
-
+            id = sb.ToString();      
             return id;
         }
     }

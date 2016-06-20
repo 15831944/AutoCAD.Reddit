@@ -24,3 +24,11 @@ C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.csproj.GenerateResource.Cache
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.dll
 C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\obj\Debug\AutoCAD.Reddit.pdb
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcCoreMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcCui.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcDbMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcDx.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcTcMgd.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AcWindows.dll
+C:\Users\Jericho Masigan\Documents\Programming\AutoCAD.Reddit\AutoCAD.Reddit\bin\Debug\AdWindows.dll

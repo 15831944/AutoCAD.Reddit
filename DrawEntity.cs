@@ -179,8 +179,6 @@ namespace AutoCADReddit
                     rasterImg.ImageDefId = imageDictId;
                     Vector3d widthV = new Vector3d(width, 0, 0); 
                     Vector3d heightV = new Vector3d(0, height, 0);
-                    //Vector3d widthV = new Vector3d((width * (rasterImg.ImageWidth * rasterImgDef.ResolutionMMPerPixel.X)), 0, 0);
-                   // Vector3d heightV = new Vector3d(0, (height * (rasterImg.ImageHeight * rasterImgDef.ResolutionMMPerPixel.Y)), 0);
                     CoordinateSystem3d coordinate = new CoordinateSystem3d(location, widthV, heightV);
                     rasterImg.Orientation = coordinate;
                     rasterImg.Rotation = 0;
@@ -189,11 +187,9 @@ namespace AutoCADReddit
                     tr.AddNewlyCreatedDBObject(rasterImg, true);
                     RasterImage.EnableReactors(true);
                     rasterImg.AssociateRasterDef(rasterImgDef);
-
                 }
                 tr.Commit();
             }
-
         }
         /// <summary>
         /// Creates an MText
@@ -228,8 +224,7 @@ namespace AutoCADReddit
                 tr.Commit();
                 actualHnW = new Tuple<double, double>(text.ActualWidth, text.ActualHeight);
                 entCreated = text;
-            }
-            
+            }          
             return actualHnW;
         }
         /// <summary>
